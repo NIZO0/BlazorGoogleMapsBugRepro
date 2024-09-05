@@ -1,0 +1,32 @@
+﻿@page "/"
+@using GoogleMapsComponents
+@using GoogleMapsComponents.Maps
+@rendermode InteractiveServer
+
+<div style="height:100vh; padding:15px">
+
+    <GoogleMap @ref="@map" Id="map" Height="100%" Options="@mapOptions" OnAfterInit="OnAfterMapInit"></GoogleMap>
+
+</div>
+
+@code {
+
+    private GoogleMap map = null!;
+    private MapOptions mapOptions = null!;
+
+    protected override void OnInitialized()
+    {
+        mapOptions = new MapOptions()
+            {
+                Zoom = 13,
+                Center = new LatLngLiteral(13.505892, 100.8162),
+                MapTypeId = MapTypeId.Roadmap,
+            };
+    }
+
+    private void OnAfterMapInit()
+    {
+    }
+}
+
+ 
